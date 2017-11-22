@@ -6,6 +6,7 @@
 ########################################################################################
 # imports
 import readKeyFile
+import readBlockFile
 from sbox import *      # sbox list
 from sboxInv import *   # Inverted sbox list
 from rcon import*       # rcon list
@@ -23,7 +24,8 @@ print (key)
 
 ########################################################################################
 # readBlockFile function calls
-
+block = readBlockFile.getBlock("..\\testBlock")
+print(block)
 ########################################################################################
 
 

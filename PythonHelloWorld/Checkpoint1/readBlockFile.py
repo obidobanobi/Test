@@ -14,18 +14,18 @@ def getBlock(filename):
     """
 	Takes a block as parameter. Output list of integers.
 	"""
-    print (filename)
+    #print (filename)
 
     # open file
     inputFile = open(filename, mode='r')
     # print file
     #print inputFile.read()
-    print ("\n")
+    #print ("\n")
 
     # get file size
     fSize = os.path.getsize(filename) 
     # print file size
-    print("length of image file: " + str(fSize) + "bytes / " + str(fSize/1048576) + " MB")
+    #print("length of image file: " + str(fSize) + "bytes / " + str(fSize/1048576) + " MB")
     
     #We want the key to be transformed into a list of hexadecimal integers
     offset = 0
@@ -37,8 +37,8 @@ def getBlock(filename):
 
     #for i in arrayA:
     #    print(int("0x"+i,0))
-    print arrayA
-    #return arrayA #if print is outside method
+    #print arrayA
+    return arrayA
 
 inputFile = raw_input("Enter file name: ")
 getBlock("..\\testBlock")
