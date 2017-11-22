@@ -1,13 +1,13 @@
 ##########
 #Method: getKey(filename)
 #Create method that does the following:
-#� File name: readKeyFile.py
-#� Method name: getKey()
-#� Input: String filename
-#� Output: List of integers
+# File name: readKeyFile.py
+# Method name: getKey()
+# Input: String filename
+# Output: List of integers
 #Code:
 #import r e a d K e y F i l e
-#key = getKey (�� t e s t K e y ��)
+#key = getKey (t e s t K e y)
 #print ( key )
 
 import os
@@ -17,18 +17,18 @@ import os
 
 
 def getKey(filename):
-    print (filename)
+    #print (filename)
 
     # open file
     inputFile = open(filename, mode='r')
     # print file
     #print inputFile.read()
-    print ("\n")
+    #print ("\n")
 
     # get file size
     fSize = os.path.getsize(filename) 
     # print file size
-    print("length of image file: " + str(fSize/1048576) + " MB")
+    #print("length of image file: " + str(fSize/1048576) + " MB")
     
     #We want the key to be transformed into a list of hexadecimal integers
     offset = 0
@@ -40,8 +40,8 @@ def getKey(filename):
 
     #for i in arrayA:
     #    print(int("0x"+i,0))
-    print arrayA
-
+    #print arrayA
+    return arrayA
     #print (arrayA)
 
 
