@@ -29,6 +29,7 @@
     <Compile Include="rcon.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="readBlockFile.py" />
     <Compile Include="readKeyFile.py" />
     <Compile Include="sbox.py">
       <SubType>Code</SubType>
