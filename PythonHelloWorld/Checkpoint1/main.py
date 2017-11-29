@@ -7,9 +7,11 @@
 # imports
 import readKeyFile
 import readBlockFile
+import RowShifter
 from sbox import *      # sbox list
 from sboxInv import *   # Inverted sbox list
 from rcon import*       # rcon list
+from RowShifter import* # RowShifter
 ########################################################################################
 
 
@@ -28,6 +30,13 @@ block = readBlockFile.getBlock("..\\testBlock")
 print(block)
 ########################################################################################
 
+
+
+########################################################################################
+# shifting rows
+shiftedBlock = RowShifter.shiftRows(block)
+print ("shiftedBlock:") #debug
+print(shiftedBlock)
 
 
 ########################################################################################
