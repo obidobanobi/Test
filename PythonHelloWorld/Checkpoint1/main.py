@@ -53,7 +53,10 @@ substitutedBlock = SubBytes.subBytes(block)
 print("substitutedBlock:")
 print(substitutedBlock)
 
-
+# inverse
+unsubstitutedBlock = SubBytes.subBytesInv(substitutedBlock)
+print("unsubstitutedBlock:")
+print(unsubstitutedBlock)
 
 
 
