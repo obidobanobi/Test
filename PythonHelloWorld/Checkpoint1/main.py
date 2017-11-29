@@ -9,11 +9,16 @@ import readKeyFile
 import readBlockFile
 import RowShifter
 import SubBytes
+import keyManager
+
 from sbox import *      # sbox list
 from sboxInv import *   # Inverted sbox list
 from rcon import*       # rcon list
 from RowShifter import* # RowShifter
+from SubBytes import*   # SubBytes
+from keyManager import *# keyManager
 ########################################################################################
+
 
 
 ########################################################################################
@@ -46,7 +51,6 @@ print(unShiftedBlock)
 
 
 
-
 ########################################################################################
 # sub bytes
 substitutedBlock = SubBytes.subBytes(block)
@@ -57,6 +61,17 @@ print(substitutedBlock)
 unsubstitutedBlock = SubBytes.subBytesInv(substitutedBlock)
 print("unsubstitutedBlock:")
 print(unsubstitutedBlock)
+########################################################################################
+
+
+
+########################################################################################
+word = [ 1 , 2 , 3 , 4 ]
+newWord = keyScheduleCore(word ,1)
+print("word:")
+print(word) 
+print("newWord")
+print(newWord)
 ########################################################################################
 
 
