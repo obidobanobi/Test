@@ -7,9 +7,6 @@
 # imports
 import readKeyFile
 import readBlockFile
-import RowShifter
-import SubBytes
-import keyManager
 
 from sbox import *      # sbox list
 from sboxInv import *   # Inverted sbox list
@@ -39,12 +36,12 @@ print(block)
 
 ########################################################################################
 # shifting rows
-shiftedBlock = RowShifter.shiftRows(block)
+shiftedBlock = shiftRows(block)
 print ("shiftedBlock:") #debug
 print(shiftedBlock)
 
 # inverse
-unShiftedBlock = RowShifter.shiftRowsInv(shiftedBlock)
+unShiftedBlock = shiftRowsInv(shiftedBlock)
 print ("unshiftedBlock:") #debug
 print(unShiftedBlock)
 ########################################################################################
@@ -53,12 +50,12 @@ print(unShiftedBlock)
 
 ########################################################################################
 # sub bytes
-substitutedBlock = SubBytes.subBytes(block)
+substitutedBlock = subBytes(block)
 print("substitutedBlock:")
 print(substitutedBlock)
 
 # inverse
-unsubstitutedBlock = SubBytes.subBytesInv(substitutedBlock)
+unsubstitutedBlock = subBytesInv(substitutedBlock)
 print("unsubstitutedBlock:")
 print(unsubstitutedBlock)
 ########################################################################################
@@ -72,6 +69,13 @@ print("word:")
 print(word) 
 print("newWord")
 print(newWord)
+
+print ("key:")
+print (key)
+expandedKey = expandKey(key)
+print ("expandedKey:")
+print (expandedKey)
+
 ########################################################################################
 
 
