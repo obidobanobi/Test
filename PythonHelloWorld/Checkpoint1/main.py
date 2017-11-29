@@ -8,12 +8,12 @@
 import readKeyFile
 import readBlockFile
 import RowShifter
+import SubBytes
 from sbox import *      # sbox list
 from sboxInv import *   # Inverted sbox list
 from rcon import*       # rcon list
 from RowShifter import* # RowShifter
 ########################################################################################
-
 
 
 ########################################################################################
@@ -40,8 +40,23 @@ print(shiftedBlock)
 
 # inverse
 unShiftedBlock = RowShifter.shiftRowsInv(shiftedBlock)
-print ("unshiftedBlock") #debug
+print ("unshiftedBlock:") #debug
 print(unShiftedBlock)
+########################################################################################
+
+
+
+
+########################################################################################
+# sub bytes
+substitutedBlock = SubBytes.subBytes(block)
+print("substitutedBlock:")
+print(substitutedBlock)
+
+
+
+
+
 ########################################################################################
 # Sbox and RCon function calls 
 print (sbox[0])
