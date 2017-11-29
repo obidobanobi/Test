@@ -38,7 +38,10 @@ shiftedBlock = RowShifter.shiftRows(block)
 print ("shiftedBlock:") #debug
 print(shiftedBlock)
 
-
+# inverse
+unShiftedBlock = RowShifter.shiftRowsInv(shiftedBlock)
+print ("unshiftedBlock") #debug
+print(unShiftedBlock)
 ########################################################################################
 # Sbox and RCon function calls 
 print (sbox[0])
