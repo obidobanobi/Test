@@ -10,11 +10,8 @@ from readKeyFile import *
 from readBlockFile import *
 ########################################################################################
 
-key = getKey("..\\testKey")
-testBlock = getBlock("..\\testBlock")
-
-expandedKey = expandKey(key)
-roundKey0 = createRoundKey( expandedKey, 0)
-
-addedRoundKeyToBlock = addRoundKey(testBlock, roundKey0)
-print(addedRoundKeyToBlock)
+def addRoundKey(roundKey, block):   
+    result = [None]*16
+    for i in range(16):
+        result[i] = roundKey[i] ^ block[i]
+    return result

@@ -15,6 +15,7 @@ from RowShifter import* # RowShifter
 from SubBytes import*   # SubBytes
 from keyManager import *# keyManager
 from columnMixer import mixColumns, mixColumnsInv
+from AddRoundKey import *
 ########################################################################################
 
 
@@ -93,6 +94,9 @@ roundKey14 = createRoundKey(expandedKey, 14)
 print (roundKey0)
 print (roundKey7)
 print (roundKey14)
+
+addedRoundKeyToBlock = addRoundKey( block , roundKey0 )
+print ( addedRoundKeyToBlock )
 ########################################################################################
 
 
