@@ -87,7 +87,12 @@ print (key)
 expandedKey = expandKey(key)
 print ("expandedKey:")
 print (expandedKey)
-
+roundKey0 = createRoundKey(expandedKey, 0)
+roundKey7 = createRoundKey(expandedKey, 7)
+roundKey14 = createRoundKey(expandedKey, 14)
+print (roundKey0)
+print (roundKey7)
+print (roundKey14)
 ########################################################################################
 
 
@@ -98,3 +103,6 @@ print (sbox[0])
 print (sboxInv[0])
 print (rcon[0])
 ########################################################################################
+
+
+

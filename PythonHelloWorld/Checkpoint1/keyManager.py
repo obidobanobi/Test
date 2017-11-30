@@ -104,5 +104,7 @@ def expandKey(key):
 
 
 
-    print(expandedKeys)
+    return expandedKeys
 
+def createRoundKey(expandedKey, n):
+    return expandedKey[n*16:n*16+16]
