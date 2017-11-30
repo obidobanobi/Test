@@ -31,10 +31,15 @@ print (key)
 # readBlockFile function calls
 print ("\n\n\nTesting column mixer")
 block = readBlockFile.getBlock("..\\testBlock")
+print ("original block: ")
 print(block)
 
-mixColumns(block)
+print ("mixed block")
+tmp = mixColumns(block)
+print (tmp)
 
+print ("unmixed block")
+print (mixColumnsInv(tmp))
 
 print ("\n\n\n")
 ########################################################################################
