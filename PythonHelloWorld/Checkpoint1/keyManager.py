@@ -89,11 +89,11 @@ def expandKey(key):
 
 
 
-        print(expandedKeys[-32:8])
+        #print(expandedKeys[-32:8])
         for b in range (0, 3):
             enBraVariabel = expandedKeys[-32:-28]
-            print("")
-            print(expandedKeys)
+            #print("")
+            #print(expandedKeys)
             temprCon = deepcopy(tempXOR)
 
             for a in range (0, 4):

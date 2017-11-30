@@ -40,8 +40,8 @@ def getBlock(filename):
     #print arrayA
     return arrayA
 
-inputFile = raw_input("Enter file name: ")
-getBlock("..\\testBlock")
+#inputFile = raw_input("Enter file name: ")
+#getBlock("..\\testBlock")
 
 # if print outside method:
 #block = getBlock("..\\testBlock")

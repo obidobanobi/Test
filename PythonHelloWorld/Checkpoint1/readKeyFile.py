@@ -51,7 +51,7 @@ def getKey(filename):
 
 
 
-inputFile = raw_input("Enter file name: ")
-getKey("..\\testKey")
+#inputFile = raw_input("Enter file name: ")
+#getKey("..\\testKey")
 #getKey("C:\\pythonprojects\\test.txt")
 #print ("bye!")

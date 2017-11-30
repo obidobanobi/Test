@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7c56eba0-edb0-45d0-9145-2c9889837dd5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>main.py</StartupFile>
+    <StartupFile>AES256.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,6 +24,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AddRoundKey.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AES256.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="columnMixer.py" />
