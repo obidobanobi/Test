@@ -14,20 +14,21 @@ from copy import deepcopy   # to copy list by value, not reference
 
 def  keyScheduleCore(word, i):
     
+    tmp = deepcopy(word)
     # rotate left (same as shift)
-	t = word[0]
-	word[0] = word[1]
-	word[1] = word[2]
-	word[2] = word[3]
-	word[3] = t
+
+    tmp[0] = word[1]
+    tmp[1] = word[2]
+    tmp[2] = word[3]
+    tmp[3] = word[0]
 
 	# S-Box four bytes:
-	word[0] = sbox[word[0]]; word[1] = sbox[word[1]]
-	word[2] = sbox[word[2]]; word[3] = sbox[word[3]]
+    tmp[0] = sbox[tmp[0]]; tmp[1] = sbox[tmp[1]]
+    tmp[2] = sbox[tmp[2]]; tmp[3] = sbox[tmp[3]]
 
 	# RCon
-	word[0] ^= rcon[i]
-	return word
+    tmp[0] ^= rcon[i]
+    return tmp
 
 def expandKey(key):
     # TODO STUFF................

@@ -6,7 +6,8 @@ from copy import deepcopy   # to copy list by value, not reference
 
 def shiftRows(block):
 
-    tmp = deepcopy(block)    
+    tmp = deepcopy(block)  
+    
 
 	# shift to the left
 	# 0
