@@ -14,6 +14,7 @@ from rcon import*       # rcon list
 from RowShifter import* # RowShifter
 from SubBytes import*   # SubBytes
 from keyManager import *# keyManager
+from columnMixer import mixColumns, mixColumnsInv
 ########################################################################################
 
 
@@ -28,8 +29,14 @@ print (key)
 
 ########################################################################################
 # readBlockFile function calls
+print ("\n\n\nTesting column mixer")
 block = readBlockFile.getBlock("..\\testBlock")
 print(block)
+
+mixColumns(block)
+
+
+print ("\n\n\n")
 ########################################################################################
 
 
