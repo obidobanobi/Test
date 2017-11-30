@@ -18,6 +18,7 @@ def mixColumn(col):
 
     return tmp
 
+
 def mixColumnInv(col):
     tmp = [None]*4
 
@@ -38,6 +39,7 @@ def mixColumns(block):
     result.extend(mixColumn([ block[12],block[13],  block[14],  block[15]       ]))
 
     return result
+
 
 def mixColumnsInv(block):
     result = []
