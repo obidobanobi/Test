@@ -23,20 +23,25 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="columnMixer.py" />
+    <Compile Include="keyManager.py" />
     <Compile Include="main.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="mixColTables.py" />
     <Compile Include="rcon.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="readBlockFile.py" />
     <Compile Include="readKeyFile.py" />
+    <Compile Include="RowShifter.py" />
     <Compile Include="sbox.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="sboxInv.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SubBytes.py" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|2.7-32" />

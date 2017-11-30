@@ -4,13 +4,15 @@
 ########################################################################################
 
 def mixColumn(col):
-    return 0
+    print ("")
+
 
 def mixColumnInv(col):
-    return 0
+    print ("")
+
 
 def mixColumns(block):
-    return 0
+    print ("")
 
 def mixColumnsInv(block):
-    return 0
+    print ("")
