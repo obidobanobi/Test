@@ -1,4 +1,3 @@
-import AES256
 import binascii
 from readKeyFile import *
 from readBlockFile import *
@@ -36,6 +35,26 @@ def encrypt(block, key):
 
     return block
 
+def decrypt(block, key):
+    expandedKey = expandKey(key)
+
+    roundKey = createRoundKey(expandedKey,14)
+    block = addRoundKey(block, roundKey)
+    block = shiftRowsInv(block)
+    block = subBytesInv(block)
+
+    for i in range(13,0,-1): # 13 -> 1
+        roundKey = createRoundKey(expandedKey, i)
+        block = addRoundKey(block, roundKey)
+        block = mixColumnsInv(block)
+        block = shiftRowsInv(block)
+        block = subBytesInv(block)
+
+    roundKey = createRoundKey(expandedKey,0)
+    block = addRoundKey(block, roundKey)
+
+    return block
+
 key = getKey("..\\testKey")
 block = getBlock("..\\testBlock")
 
@@ -45,6 +64,5 @@ encryptedBlock = encrypt(block, key)
 printHex (encryptedBlock)
 print (encryptedBlock)
 print ("\n\n\n")
-
-
-
+decryptedblock = decrypt(encryptedBlock, key)
+print (decryptedblock)
