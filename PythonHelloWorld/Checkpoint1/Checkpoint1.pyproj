@@ -30,6 +30,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="columnMixer.py" />
+    <Compile Include="HelperMethods.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="keyManager.py" />
     <Compile Include="main.py">
       <SubType>Code</SubType>

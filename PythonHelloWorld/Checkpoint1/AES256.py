@@ -7,6 +7,7 @@ from AddRoundKey import *
 from SubBytes import *
 from RowShifter import *
 from columnMixer import *
+from HelperMethods import printHex
 
 def encrypt(block, key):
     expandedKey = expandKey(key)
@@ -31,6 +32,10 @@ def encrypt(block, key):
 key = getKey("..\\testKey")
 block = getBlock("..\\testBlock")
 
-print (block)
+printHex (block)
 encryptedBlock = encrypt(block, key)
-print (encryptedBlock)
+printHex (encryptedBlock)
+print ("\n\n\n")
+
+
+
