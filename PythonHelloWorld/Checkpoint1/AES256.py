@@ -11,6 +11,9 @@ from HelperMethods import printHex
 def encrypt(block, key, iv):
     expandedKey = expandKey(key)
 
+    print("iv:")
+    print(iv)
+
     for i in range(16):
         block[i] = block[i] ^ iv[i]
     

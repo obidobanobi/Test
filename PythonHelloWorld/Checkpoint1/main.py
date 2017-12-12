@@ -5,6 +5,7 @@
 
 ########################################################################################
 # imports
+from HelperMethods import printHex
 from AES256 import *
 from readBlockFile import *
 from readKeyFile import *
@@ -18,16 +19,17 @@ blocks = getBlock("..\\lessismore.txt")
 iv = [42, 42, 42, 42,
       42, 42, 42, 42,
       42, 42, 42, 42,
-      42, 42, 42, 42]
+      42, 42, 42, 42] #2a, ...
 
 encrypted = []
 print ("working encrypt()...")
 for block in blocks:
     iv = encrypt(block, key, iv)
+
     encrypted.append(iv)
 
 print ("working...")
 for i in encrypted:
-    print (str(i))
+    printHex(i)
 
 
