@@ -14,13 +14,9 @@ def getBlock(filename):
     """
 	Takes a block as parameter. Output list of integers.
 	"""
-    #print (filename)
 
     # open file
-    inputFile = open(filename, mode='r')
-    # print file
-    #print inputFile.read()
-    #print ("\n")
+    inputFile = open(filename, mode='rb')
 
     # get file size
     fSize = os.path.getsize(filename) 
@@ -29,16 +25,25 @@ def getBlock(filename):
     
     #We want the key to be transformed into a list of hexadecimal integers
     offset = 0
-    step = 2
+    step = 1
     arrayA = []
+    blocks = []
+    
+    i = 0
     while(offset <= (fSize - step)):
-        arrayA.append(int("0x"+inputFile.read(step),0))      
+    
+        if (offset != 0 and offset % 16 == 0):
+            blocks.append(arrayA)
+            arrayA = []
+
+        arrayA.append(inputFile.read(step))      
         offset +=step
+
 
     #for i in arrayA:
     #    print(int("0x"+i,0))
     #print arrayA
-    return arrayA
+    return blocks
 
 #inputFile = raw_input("Enter file name: ")
 #getBlock("..\\testBlock")

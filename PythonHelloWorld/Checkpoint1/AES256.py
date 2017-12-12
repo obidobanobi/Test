@@ -8,7 +8,7 @@ from RowShifter import *
 from columnMixer import *
 from HelperMethods import printHex
 
-def encrypt(block, key):
+def encrypt(block, key, iv):
     expandedKey = expandKey(key)
 
     roundKey = createRoundKey(expandedKey, 0)
@@ -55,14 +55,14 @@ def decrypt(block, key):
 
     return block
 
-key = getKey("..\\testKey")
-block = getBlock("..\\testBlock")
+#key = getKey("..\\testKey")
+#block = getBlock("..\\testBlock")
 
-printHex (block)
-print (block)
-encryptedBlock = encrypt(block, key)
-printHex (encryptedBlock)
-print (encryptedBlock)
-print ("\n\n\n")
-decryptedblock = decrypt(encryptedBlock, key)
-print (decryptedblock)
+#printHex (block)
+#print (block)
+#encryptedBlock = encrypt(block, key)
+#printHex (encryptedBlock)
+#print (encryptedBlock)
+#print ("\n\n\n")
+#decryptedblock = decrypt(encryptedBlock, key)
+#print (decryptedblock)

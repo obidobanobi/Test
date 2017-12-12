@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7c56eba0-edb0-45d0-9145-2c9889837dd5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>AES256.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
