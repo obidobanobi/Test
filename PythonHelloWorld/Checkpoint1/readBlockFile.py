@@ -55,7 +55,7 @@ def getBlock(filename):
     #for i in arrayA:
     #    print(int("0x"+i,0))
     #print arrayA
-    print (blocks)
+    #print (blocks)
     return blocks
 
 #inputFile = raw_input("Enter file name: ")

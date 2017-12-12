@@ -25,14 +25,32 @@ iv = [42, 42, 42, 42,
 
 encrypted = []
 print ("working encrypt()...")
+
+
+size = len(blocks)
+i = 0.0
+
 for block in blocks:
-    print (len(block))
+    if (i % 100 == 0 and i != 0):
+        print ("Status: " + str((i / size)*100) + "%")
+
     iv = encrypt(block, key, iv)
+    i += 1
 
     encrypted.append(iv)
 
 print ("working...")
-for i in encrypted:
-    printHex(i)
 
+
+j = 0
+file = open('..\\encrypted.txt', 'a')
+for i in encrypted:
+
+    file.write(printHex(i))
+    j += 1
+
+    if (j % 16 == 0 and j != 0):
+        file.write("\n")
+
+file.close()
 
