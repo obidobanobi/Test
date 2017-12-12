@@ -33,11 +33,12 @@ def getBlock(filename):
 
     while(offset <= (fSize - step)):
     
-        arrayA.append(int(hex(ord(inputFile.read(step))),0))
+        
         if (offset != 0 and offset % 16 == 0):
             blocks.append(arrayA)
             arrayA = []
-   
+
+        arrayA.append(int(hex(ord(inputFile.read(step))),0))
         offset +=step
 
     if(len(arrayA) > 0):

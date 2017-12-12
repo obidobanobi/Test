@@ -14,6 +14,8 @@ from readKeyFile import *
 key = getKey("..\\testKey")
 #blocks = getBlock("..\\text & test.txt")
 blocks = getBlock("..\\lessismore.txt")
+#blocks = getBlock("..\\yetanothertest.txt")
+
 
 # first iv
 iv = [42, 42, 42, 42,
@@ -24,6 +26,7 @@ iv = [42, 42, 42, 42,
 encrypted = []
 print ("working encrypt()...")
 for block in blocks:
+    print (len(block))
     iv = encrypt(block, key, iv)
 
     encrypted.append(iv)
