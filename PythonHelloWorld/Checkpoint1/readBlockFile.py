@@ -18,6 +18,7 @@ def getBlock(filename):
     # open file
     inputFile = open(filename, mode='rb')
 
+
     # get file size
     fSize = os.path.getsize(filename) 
     # print file size
@@ -29,20 +30,31 @@ def getBlock(filename):
     arrayA = []
     blocks = []
     
-    i = 0
+
     while(offset <= (fSize - step)):
     
+        arrayA.append(int(hex(ord(inputFile.read(step))),0))
         if (offset != 0 and offset % 16 == 0):
             blocks.append(arrayA)
             arrayA = []
-
-        arrayA.append(inputFile.read(step))      
+   
         offset +=step
 
+    if(len(arrayA) > 0):
+        padValue = 16-(len(arrayA))
+        while(len(arrayA) > 0 and len(arrayA) < 16):
+            arrayA.append(padValue)
+        blocks.append(arrayA)
+    else:
+        blocks.append( [16,16,16,16,
+                        16,16,16,16,
+                        16,16,16,16,
+                        16,16,16,16] )
 
     #for i in arrayA:
     #    print(int("0x"+i,0))
     #print arrayA
+    print (blocks)
     return blocks
 
 #inputFile = raw_input("Enter file name: ")

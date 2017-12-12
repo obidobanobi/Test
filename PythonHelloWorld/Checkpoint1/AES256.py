@@ -11,6 +11,10 @@ from HelperMethods import printHex
 def encrypt(block, key, iv):
     expandedKey = expandKey(key)
 
+    for i in range(16):
+        block[i] = block[i] ^ iv[i]
+    
+    #print(block)
     roundKey = createRoundKey(expandedKey, 0)
     block = addRoundKey(roundKey, block)
     #print ("Round 0")
