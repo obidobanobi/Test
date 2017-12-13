@@ -12,8 +12,8 @@ from readKeyFile import *
 ########################################################################################
 
 key = getKey("..\\testKey")
-#blocks = getBlock("..\\text & test.txt", False)
-blocks = getBlock("..\\lessismore.txt", False)
+blocks = getBlock("..\\text & test.txt", False)
+#blocks = getBlock("..\\lessismore.txt", False)
 #blocks = getBlock("..\\yetanothertest.txt", False)
 
 print ("Original men padding size:" + str(len(blocks)))
