@@ -42,7 +42,7 @@ def encrypt(block, key, iv):
 
     return block
 
-def decrypt(block, key):
+def decrypt(block, key, iv):
     expandedKey = expandKey(key)
 
     roundKey = createRoundKey(expandedKey,14)
@@ -59,6 +59,9 @@ def decrypt(block, key):
 
     roundKey = createRoundKey(expandedKey,0)
     block = addRoundKey(block, roundKey)
+
+    for i in range(16):
+        block[i] = block[i] ^ iv[i]
 
     return block
 

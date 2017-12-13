@@ -10,14 +10,18 @@
 
 import os
 
-def getBlock(filename):
+def getBlock(filename, decrypt):
     """
 	Takes a block as parameter. Output list of integers.
 	"""
 
     # open file
-    inputFile = open(filename, mode='rb')
-
+    if (decrypt == False):
+        inputFile = open(filename, mode='rb')
+        step = 1
+    else:
+        inputFile = open(filename, mode='r')
+        step = 2
 
     # get file size
     fSize = os.path.getsize(filename) 
@@ -26,36 +30,56 @@ def getBlock(filename):
     
     #We want the key to be transformed into a list of hexadecimal integers
     offset = 0
-    step = 1
+    
     arrayA = []
     blocks = []
     
 
     while(offset <= (fSize - step)):
     
-        
-        if (offset != 0 and offset % 16 == 0):
-            blocks.append(arrayA)
-            arrayA = []
+        if (decrypt == False):
+            if (offset != 0 and offset % 16 == 0):
+                blocks.append(arrayA)
+                arrayA = []
+            arrayA.append(int(hex(ord(inputFile.read(step))),0))
+            
+        else:
+            #print (len(arrayA))
+            if (offset != 0 and offset % 32 == 0):
+                blocks.append(arrayA)
+                arrayA = []
+            arrayA.append(int("0x"+inputFile.read(step),0)) 
+            #print (arrayA[-1])
+        #if (offset == 920L):
+        #    print ("skmsdkm")
 
-        arrayA.append(int(hex(ord(inputFile.read(step))),0))
         offset +=step
 
-    if(len(arrayA) > 0):
-        padValue = 16-(len(arrayA))
-        while(len(arrayA) > 0 and len(arrayA) < 16):
-            arrayA.append(padValue)
-        blocks.append(arrayA)
+    if (decrypt == False):
+        if (len(arrayA) == 16):
+            blocks.append(arrayA)
+            arrayA = []
+        if(len(arrayA) > 0):
+            padValue = 16-(len(arrayA))
+            while(len(arrayA) > 0 and len(arrayA) < 16):
+                arrayA.append(padValue)
+            blocks.append(arrayA)
+        else:
+            blocks.append( [16,16,16,16,
+                            16,16,16,16,
+                            16,16,16,16,
+                            16,16,16,16] )
+
     else:
-        blocks.append( [16,16,16,16,
-                        16,16,16,16,
-                        16,16,16,16,
-                        16,16,16,16] )
+        blocks.append(arrayA)
+    #else:
+    #    arrayA.append(int("0x"+inputFile.read(step),0))
+    #    blocks.append(arrayA)
 
     #for i in arrayA:
     #    print(int("0x"+i,0))
     #print arrayA
-    #print (blocks)
+    #print (len(blocks))
     return blocks
 
 #inputFile = raw_input("Enter file name: ")
