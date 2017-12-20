@@ -9,12 +9,13 @@ from HelperMethods import printHex
 from AES256 import *
 from readBlockFile import *
 from readKeyFile import *
+import time
 ########################################################################################
 
 key = getKey("..\\testKey")
-#blocks = getBlock("..\\text & test.txt", False)
+blocks = getBlock("..\\text & test.txt", False)
 #blocks = getBlock("..\\lessismore.txt", False)
-blocks = getBlock("..\\yetanothertest.txt", False)
+#blocks = getBlock("..\\yetanothertest.txt", False)
 
 print ("Original men padding size:" + str(len(blocks)))
 print ("Original:" + str(blocks[-1]))
@@ -28,6 +29,7 @@ iv = [42, 42, 42, 42,
 encrypted = []
 print ("working encrypt()...")
 
+start = time.time()
 
 size = len(blocks)
 i = 0.0
@@ -41,6 +43,8 @@ for block in blocks:
 
     encrypted.append(iv)
 
+elapsedTime = time.time() - start
+print ("Encryption Time: " + str(elapsedTime))
 print ("Encrypted size:" + str(len(encrypted)))
 print ("Encrypted: " + str(encrypted[-1]))
 
@@ -71,7 +75,7 @@ iv = [42, 42, 42, 42,
       42, 42, 42, 42,
       42, 42, 42, 42]
 
-
+start = time.time()
 i = 0
 for block in blocks:
     if (i % 100 == 0 and i != 0):
@@ -82,6 +86,9 @@ for block in blocks:
     i += 1
     iv = block
     #encrypted.append(iv)
+
+elapsedTime = time.time() - start
+print ("Dencryption Time: " + str(elapsedTime))
 
 print (int(decrypted[-1][-1]))
 decrypted[-1] = decrypted[-1][:len(decrypted[-1])-int(decrypted[-1][-1])]
