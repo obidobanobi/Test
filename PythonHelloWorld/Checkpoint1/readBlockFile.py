@@ -82,6 +82,13 @@ def getBlock(filename, decrypt):
     #print (len(blocks))
     return blocks
 
+
+
+
+
+
+
+
 #inputFile = raw_input("Enter file name: ")
 #getBlock("..\\testBlock")
 

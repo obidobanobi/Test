@@ -12,9 +12,9 @@ from readKeyFile import *
 ########################################################################################
 
 key = getKey("..\\testKey")
-blocks = getBlock("..\\text & test.txt", False)
+#blocks = getBlock("..\\text & test.txt", False)
 #blocks = getBlock("..\\lessismore.txt", False)
-#blocks = getBlock("..\\yetanothertest.txt", False)
+blocks = getBlock("..\\yetanothertest.txt", False)
 
 print ("Original men padding size:" + str(len(blocks)))
 print ("Original:" + str(blocks[-1]))
@@ -46,7 +46,7 @@ print ("Encrypted: " + str(encrypted[-1]))
 
 
 
-file = open('..\\encrypted.txt', 'w')
+file = open('..\\encrypted.txt', 'wb')
 for i in encrypted:
 
     file.write(printHex(i))
@@ -91,7 +91,7 @@ print ("Decrypted: " + str(decrypted[-1]))
 
 
 
-file = open('..\\decrypted.txt', 'w')
+file = open('..\\decrypted.txt', 'wb')
 for i in decrypted:
     for j in i:
         #print (chr(j))
