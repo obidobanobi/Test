@@ -13,8 +13,8 @@ import time
 ########################################################################################
 
 key = getKey("..\\testKey")
-blocks = getBlock("..\\text & test.txt", False)
-#blocks = getBlock("..\\lessismore.txt", False)
+#blocks = getBlock("..\\text & test.txt", False)
+blocks = getBlock("..\\lessismore.txt", False)
 #blocks = getBlock("..\\yetanothertest.txt", False)
 
 #print ("Original men padding size:" + str(len(blocks)))
@@ -66,8 +66,7 @@ print ("Encryption Time: %d:%02d:%02d" % (h, m, s))
 
 file = open('..\\encrypted.txt', 'wb')
 for i in encrypted:
-
-    file.write(printHex(i))
+    file.write(bytearray(i))
 
 
 file.close()

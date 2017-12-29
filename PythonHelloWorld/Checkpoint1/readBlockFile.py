@@ -20,8 +20,8 @@ def getBlock(filename, decrypt):
         inputFile = open(filename, mode='rb')
         step = 1
     else:
-        inputFile = open(filename, mode='r')
-        step = 2
+        inputFile = open(filename, mode='rb')
+        step = 1
 
     # get file size
     fSize = os.path.getsize(filename) 
@@ -42,13 +42,19 @@ def getBlock(filename, decrypt):
                 blocks.append(arrayA)
                 arrayA = []
             arrayA.append(int(hex(ord(inputFile.read(step))),0))
-            
+         
         else:
             #print (len(arrayA))
-            if (offset != 0 and offset % 32 == 0):
+            if (offset != 0 and offset % 16 == 0):
                 blocks.append(arrayA)
                 arrayA = []
-            arrayA.append(int("0x"+inputFile.read(step),0)) 
+            arrayA.append(int(hex(ord(inputFile.read(step))),0))
+        #else:
+        #    #print (len(arrayA))
+        #    if (offset != 0 and offset % 32 == 0):
+        #        blocks.append(arrayA)
+        #        arrayA = []
+        #    arrayA.append(int("0x"+inputFile.read(step),0)) 
             #print (arrayA[-1])
         #if (offset == 920L):
         #    print ("skmsdkm")
