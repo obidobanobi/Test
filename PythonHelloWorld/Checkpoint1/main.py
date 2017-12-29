@@ -37,7 +37,15 @@ totalTime = time.time()
 
 size = len(blocks)
 i = 0.0
+j = 0
 
+#################################################### bara en liten testrunda ################
+#for block in blocks:
+#    j+=1
+#    print(j)
+#
+#print ("oooops") # <---- insert breakpoint here
+############################################################################################
 for block in blocks:
     if (i % 100 == 0 and i != 0):
         print ("Status: " + str(int((i / size)*100)) + "%\r"),
