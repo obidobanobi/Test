@@ -17,8 +17,9 @@ blocks = getBlock("..\\text & test.txt", False)
 #blocks = getBlock("..\\lessismore.txt", False)
 #blocks = getBlock("..\\yetanothertest.txt", False)
 
-print ("Original men padding size:" + str(len(blocks)))
-print ("Original:" + str(blocks[-1]))
+#print ("Original men padding size:" + str(len(blocks)))
+#print ("Original:" + str(blocks[-1]))
+
 
 # first iv
 iv = [42, 42, 42, 42,
@@ -27,16 +28,19 @@ iv = [42, 42, 42, 42,
       42, 42, 42, 42] #2a, ...
 
 encrypted = []
-print ("working encrypt()...")
+print ("encrypting...")
+print ("Blocksize:" + str(len(blocks)))
 
 start = time.time()
+totalTime = time.time()
+
 
 size = len(blocks)
 i = 0.0
 
 for block in blocks:
     if (i % 100 == 0 and i != 0):
-        print ("Status: " + str((i / size)*100) + "%")
+        print ("Status: " + str(int((i / size)*100)) + "%\r"),
 
     iv = encrypt(block, key, iv)
     i += 1
@@ -44,10 +48,12 @@ for block in blocks:
     encrypted.append(iv)
 
 elapsedTime = time.time() - start
-print ("Encryption Time: " + str(elapsedTime))
-print ("Encrypted size:" + str(len(encrypted)))
-print ("Encrypted: " + str(encrypted[-1]))
-
+m, s = divmod(elapsedTime, 60)
+h, m = divmod(m, 60)
+print ("Encryption Time: %d:%02d:%02d" % (h, m, s))
+#print ("Encryption Time: " + str(elapsedTime))
+#print ("Encrypted size:" + str(len(encrypted)))
+#print ("Encrypted: " + str(encrypted[-1]))
 
 
 file = open('..\\encrypted.txt', 'wb')
@@ -59,14 +65,14 @@ for i in encrypted:
 file.close()
 
 
-print ("working decryption...")
+print ("\n\ndecrypting...")
 
 
 
 
 blocks = getBlock("..\\encrypted.txt", True)
 
-print ("BLocksize:" + str(len(blocks)))
+print ("Blocksize:" + str(len(blocks)))
 #print ("Decrypted:" + blocks)
 
 decrypted = []
@@ -76,10 +82,10 @@ iv = [42, 42, 42, 42,
       42, 42, 42, 42]
 
 start = time.time()
-i = 0
+i = 0.0
 for block in blocks:
     if (i % 100 == 0 and i != 0):
-        print ("Status: " + str((i / size)*100) + "%")
+        print ("Status: " + str(int((i / size)*100)) + "%\r"),
 
     # iv = 
     decrypted.append(decrypt(block, key, iv))
@@ -88,13 +94,16 @@ for block in blocks:
     #encrypted.append(iv)
 
 elapsedTime = time.time() - start
-print ("Dencryption Time: " + str(elapsedTime))
+m, s = divmod(elapsedTime, 60)
+h, m = divmod(m, 60)
+print ("Decryption Time: %d:%02d:%02d" % (h, m, s))
+#print ("Encryption Time: " + str(elapsedTime))
 
-print (int(decrypted[-1][-1]))
+#print (int(decrypted[-1][-1]))
 decrypted[-1] = decrypted[-1][:len(decrypted[-1])-int(decrypted[-1][-1])]
 
-print ("Decrypted size:" + str(len(decrypted)))
-print ("Decrypted: " + str(decrypted[-1]))
+#print ("Decrypted size:" + str(len(decrypted)))
+#print ("Decrypted: " + str(decrypted[-1]))
 
 
 
@@ -104,5 +113,9 @@ for i in decrypted:
         #print (chr(j))
         file.write(chr(j))
 
+elapsedTime = time.time() - totalTime
+m, s = divmod(elapsedTime, 60)
+h, m = divmod(m, 60)
+print ("\n\nTotal Time: %d:%02d:%02d" % (h, m, s))
 
 file.close()
