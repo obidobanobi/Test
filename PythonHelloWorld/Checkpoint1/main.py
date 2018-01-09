@@ -22,8 +22,7 @@ import time
 
 # input text 
 key = getKey("..\\testKey")
-#blocks = getBlock("..\\text & test.txt", False)
-blocks = getBlock("..\\lessismore.txt", False)
+blocks = getBlock("..\\text & test.txt", False)
 
 # first iv
 iv = [42, 42, 42, 42,
