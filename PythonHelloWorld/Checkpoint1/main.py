@@ -1,6 +1,7 @@
 ########################################################################################
 # main.py
 # from here, all other methods will be called.
+# Created By Leonhard Berg, Olle Montelius (Team programming)
 ########################################################################################
 
 ########################################################################################
@@ -12,40 +13,49 @@ from readKeyFile import *
 import time
 ########################################################################################
 
+
+########################################################################################
+# Initialize variables and get input text
+
+# input text 
 key = getKey("..\\testKey")
-blocks = getBlock("..\\text & test.txt", False)
-#blocks = getBlock("..\\lessismore.txt", False)
+#blocks = getBlock("..\\text & test.txt", False)
+blocks = getBlock("..\\lessismore.txt", False)
 #blocks = getBlock("..\\yetanothertest.txt", False)
-
-#print ("Original men padding size:" + str(len(blocks)))
-#print ("Original:" + str(blocks[-1]))
-
 
 # first iv
 iv = [42, 42, 42, 42,
       42, 42, 42, 42,
       42, 42, 42, 42,
-      42, 42, 42, 42] #2a, ...
+      42, 42, 42, 42] 
 
+# create empty list for encrypted data
 encrypted = []
-print ("encrypting...")
-print ("Blocksize:" + str(len(blocks)))
 
+# reset timers
 start = time.time()
 totalTime = time.time()
 
-
+# save the size of the file
 size = len(blocks)
-i = 0.0
-j = 0
+########################################################################################
 
-#################################################### bara en liten testrunda ################
-#for block in blocks:
-#    j+=1
-#    print(j)
-#
-#print ("oooops") # <---- insert breakpoint here
-############################################################################################
+
+
+########################################################################################
+# print information
+print ("Encrypting...")
+print ("Blocksize:" + str(len(blocks)))
+########################################################################################
+
+
+
+########################################################################################
+# Calculate percent 
+# ...
+########################################################################################
+i = 0.0 # reset percent counter
+
 for block in blocks:
     if (i % 100 == 0 and i != 0):
         print ("Status: " + str(int((i / size)*100)) + "%\r"),
@@ -54,14 +64,13 @@ for block in blocks:
     i += 1
 
     encrypted.append(iv)
+########################################################################################
+
 
 elapsedTime = time.time() - start
 m, s = divmod(elapsedTime, 60)
 h, m = divmod(m, 60)
 print ("Encryption Time: %d:%02d:%02d" % (h, m, s))
-#print ("Encryption Time: " + str(elapsedTime))
-#print ("Encrypted size:" + str(len(encrypted)))
-#print ("Encrypted: " + str(encrypted[-1]))
 
 
 file = open('..\\encrypted.txt', 'wb')
@@ -80,7 +89,6 @@ print ("\n\ndecrypting...")
 blocks = getBlock("..\\encrypted.txt", True)
 
 print ("Blocksize:" + str(len(blocks)))
-#print ("Decrypted:" + blocks)
 
 decrypted = []
 iv = [42, 42, 42, 42,
@@ -98,26 +106,22 @@ for block in blocks:
     decrypted.append(decrypt(block, key, iv))
     i += 1
     iv = block
-    #encrypted.append(iv)
 
 elapsedTime = time.time() - start
 m, s = divmod(elapsedTime, 60)
 h, m = divmod(m, 60)
 print ("Decryption Time: %d:%02d:%02d" % (h, m, s))
-#print ("Encryption Time: " + str(elapsedTime))
 
-#print (int(decrypted[-1][-1]))
+
 decrypted[-1] = decrypted[-1][:len(decrypted[-1])-int(decrypted[-1][-1])]
 
-#print ("Decrypted size:" + str(len(decrypted)))
-#print ("Decrypted: " + str(decrypted[-1]))
+
 
 
 
 file = open('..\\decrypted.txt', 'wb')
 for i in decrypted:
     for j in i:
-        #print (chr(j))
         file.write(chr(j))
 
 elapsedTime = time.time() - totalTime

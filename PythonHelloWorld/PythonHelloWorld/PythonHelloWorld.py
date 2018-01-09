@@ -11,4 +11,4 @@ print ("hello Olle")
 #Code:
 #import r e a d K e y F i l e
 #key = getKey (‘‘ t e s t K e y ‘‘)
-#print ( key )
+#print ( key )
