@@ -6,9 +6,9 @@
 ########################################################################################
 
 
+
 ########################################################################################
 # imports 
-#import os
 from sbox import *      # sbox list
 from sboxInv import *   # Inverted sbox list
 from rcon import*       # rcon list
