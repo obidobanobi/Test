@@ -1,6 +1,9 @@
 ########################################################################################
 # columnMixer.py
-# fancy decription comming soon... =)
+# The mix of columns is a shuffle of each individual column in the block. This shuffles
+# happens in a deterministic way dependent on the values within the column.
+# This file contains the logic for column mixing.
+# Created By Leonhard Berg, Olle Montelius (Team programming)
 ########################################################################################
 
 ########################################################################################
@@ -8,6 +11,10 @@
 from mixColTables import *
 ########################################################################################
 
+
+########################################################################################
+# This method take one column and perform the multiplications in accordance
+# to the multiplication tables. 
 def mixColumn(col):
     tmp = [None]*4
 
@@ -17,8 +24,12 @@ def mixColumn(col):
     tmp[3] = table_3[col[0]]^col[1]^col[2]^table_2[col[3]]      # 3 1 1 2
 
     return tmp
+########################################################################################
 
 
+########################################################################################
+# This method take one column and perform the multiplications in accordance
+# to the multiplication tables.
 def mixColumnInv(col):
     tmp = [None]*4
 
@@ -28,8 +39,12 @@ def mixColumnInv(col):
     tmp[3] = table_11[col[0]]^table_13[col[1]]^table_9[col[2]]^table_14[col[3]]      # 11 13 9 14
 
     return tmp
+########################################################################################
 
 
+########################################################################################
+# This function calls the mixColumn(col) for each column in the
+# block and then return the mixed block.
 def mixColumns(block):
     result = []
 
@@ -39,8 +54,12 @@ def mixColumns(block):
     result.extend(mixColumn([ block[12],block[13],  block[14],  block[15]       ]))
 
     return result
+########################################################################################
 
 
+########################################################################################
+# This function calls the mixColumnInv(col) for each column in the
+# block and then return the mixed block.
 def mixColumnsInv(block):
     result = []
 
@@ -50,4 +69,4 @@ def mixColumnsInv(block):
     result.extend(mixColumnInv([ block[12],block[13],block[14],block[15] ]))
 
     return result
-
+########################################################################################

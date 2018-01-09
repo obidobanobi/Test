@@ -1,7 +1,7 @@
 import os
 from copy import deepcopy   # to copy list by value, not reference
 
-# input block -> output block
+# input block -> output block jaha
 
 
 def shiftRows(block):
