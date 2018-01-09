@@ -1,6 +1,9 @@
 ########################################################################################
 # mixColTables.py
-# fancy decription comming soon... =)
+# To do AES mixing of columns one only needs to multiply elements with
+# 1, 2 or 3. And for the un-mixing 9, 11, 13 or 14.
+# This file contains pre-calculated multiplication lists for 2,3,9,11,13,14
+# Created By Leonhard Berg, Olle Montelius (Team programming)
 ########################################################################################
 
 table_2 = [
