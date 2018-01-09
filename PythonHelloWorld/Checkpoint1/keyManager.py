@@ -8,7 +8,7 @@
 
 ########################################################################################
 # imports 
-import os
+#import os
 from sbox import *      # sbox list
 from sboxInv import *   # Inverted sbox list
 from rcon import*       # rcon list
@@ -57,7 +57,7 @@ def expandKey(key):
     
     while (len(expandedKeys) < 240):    # 240 is the value for 256-bit keys 
         temp = expandedKeys[-4:]
-        enBraVariabel = expandedKeys[-32:-28]
+        aHelpfulVariable = expandedKeys[-32:-28]
 
         temprCon = keyScheduleCore(temp, rconIteration)
         rconIteration += 1
