@@ -19,7 +19,7 @@ from copy import deepcopy   # to copy list by value, not reference
 # every time it is called. It simply shifts each row to the left the same number of
 # steps as the current row number. As seen below:
 # a b c d       a b c d
-# e f g h   →   f g h e
+# e f g h   ->  f g h e
 # i j k l       k l i j
 # m n o p       p m n o
 def shiftRows(block):
@@ -53,7 +53,7 @@ def shiftRows(block):
 ########################################################################################
 # shift to the right instead of to the left
 # a b c d       a b c d
-# f g h e   →   e f g h
+# f g h e   ->  e f g h
 # k l i j       i j k l
 # p m n o       m n o p
 def shiftRowsInv(block):
