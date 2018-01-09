@@ -1,6 +1,7 @@
 ########################################################################################
 # AddRoundKey.py
-# fancy decription comming soon... =)
+# addRoundKey() simply XOR each element of a roundkey with a block.
+# Created By Leonhard Berg, Olle Montelius (Team programming)
 ########################################################################################
 
 ########################################################################################
