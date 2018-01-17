@@ -24,6 +24,8 @@ import time
 key = getKey("..\\testKey")
 blocks = getBlock("..\\text & test.txt", False)
 
+
+key = expandKey(key)    # expand the provided key
 # first iv
 iv = [42, 42, 42, 42,
       42, 42, 42, 42,

@@ -25,7 +25,8 @@ from HelperMethods import printHex
 ########################################################################################
 # encrypts one block at a time and returns the encrypted block
 def encrypt(block, key, iv):
-    expandedKey = expandKey(key)    # expand the provided key
+    #expandedKey = expandKey(key)    # expand the provided key
+    expandedKey = key
 
     for i in range(16):             # XOR the block with the provided IV
         block[i] = block[i] ^ iv[i]
@@ -53,7 +54,8 @@ def encrypt(block, key, iv):
 ########################################################################################
 # decrypts one block at a time and returns the encrypted block
 def decrypt(block, key, iv):
-    expandedKey = expandKey(key)    # expand the provided key
+    #expandedKey = expandKey(key)    # expand the provided key
+    expandedKey = key
 
     roundKey = createRoundKey(expandedKey,14)   #create the last RoundKey (14) and
     block = addRoundKey(block, roundKey)        # do addRoundKey,
